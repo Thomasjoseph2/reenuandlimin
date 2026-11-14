@@ -82,6 +82,24 @@ var WEDDING = new Date('2027-01-04T11:00:00+05:30');
   });
 })();
 
+/* ---------- RSVP form (submits to Netlify Forms via AJAX) ---------- */
+(function () {
+  var form = document.getElementById('rsvpForm');
+  if (!form) return;
+
+  // The form posts to Google Forms via a hidden iframe (no page reload).
+  // We just swap in a thank-you message once it's submitted.
+  form.addEventListener('submit', function () {
+    var btn = form.querySelector('button[type="submit"]');
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+    setTimeout(function () {
+      form.hidden = true;
+      var thanks = document.getElementById('rsvpThanks');
+      if (thanks) thanks.hidden = false;
+    }, 600);
+  });
+})();
+
 /* ---------- Gentle reveal on scroll ---------- */
 (function () {
   if (!('IntersectionObserver' in window)) return;

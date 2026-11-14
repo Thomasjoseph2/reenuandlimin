@@ -84,7 +84,7 @@
             <span class="family__and">&amp;</span>
             <span>Jessy Kuruvilla</span>
           </p>
-          <p class="family__by">Sister</p>
+          <p class="family__by">Brother</p>
           <p class="family__rel">Manu Kuruvilla &amp; Meenu Jose</p>
         </div>
 
@@ -139,6 +139,52 @@
       <img src="images/hero.png" alt="Renu and Limin at their engagement" loading="lazy" />
       <img src="images/church.png" alt="The couple outside the church" loading="lazy" />
       <img src="images/hilltop.png" alt="The couple on a hilltop" loading="lazy" />
+    </div>
+  </section>
+
+  <!-- ============ RSVP & WISHES ============ -->
+  <section class="rsvp" id="rsvp">
+    <div class="rsvp__inner">
+      <div class="verse__rule"><span>&#10013;</span></div>
+      <h2 class="section__title">RSVP &amp; Wishes</h2>
+      <p class="rsvp__sub">Kindly let us know if you can join us &mdash; and leave a blessing for Renu &amp; Limin.</p>
+
+      <form class="rsvp__form" id="rsvpForm"
+            action="https://docs.google.com/forms/d/e/1FAIpQLScsXci7XNloCNzYmwL9-PKrGPUGJ1PsnbVKqBP6nSqPAqR1IA/formResponse"
+            method="POST" target="hidden_iframe">
+
+        <label class="rsvp__field">Your Name
+          <input type="text" name="entry.2098480747" required placeholder="Full name" />
+        </label>
+
+        <div class="rsvp__grid">
+          <label class="rsvp__field">Will you attend?
+            <select name="entry.291308951" required>
+              <option value="">Choose&hellip;</option>
+              <option value="Joyfully accept">Joyfully accept</option>
+              <option value="Regretfully decline">Regretfully decline</option>
+            </select>
+          </label>
+          <label class="rsvp__field">Number of guests
+            <input type="number" name="entry.2074531736" min="1" value="1" />
+          </label>
+        </div>
+
+        <label class="rsvp__field">Phone / WhatsApp <span>(optional)</span>
+          <input type="tel" name="entry.864843343" placeholder="+91 ..." />
+        </label>
+
+        <label class="rsvp__field">Your wishes for the couple <span>(optional)</span>
+          <textarea name="entry.953169895" rows="4" placeholder="Write your blessing..."></textarea>
+        </label>
+
+        <button type="submit" class="btn rsvp__btn">Send RSVP &amp; Wishes</button>
+      </form>
+      <iframe name="hidden_iframe" title="hidden" style="display:none"></iframe>
+
+      <p class="rsvp__thanks" id="rsvpThanks" hidden>
+        Thank you! Your message has reached the family. &#10013;
+      </p>
     </div>
   </section>
 
