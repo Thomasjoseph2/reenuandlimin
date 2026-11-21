@@ -365,16 +365,22 @@ img{display:block;max-width:100%;height:auto}
 }
 .family__divider{
   align-self:stretch;
+  position:relative;
   display:flex; align-items:center; justify-content:center;
   color:var(--gold);
 }
+.family__divider::before{
+  content:"";
+  position:absolute; top:0; bottom:0; left:50%;
+  width:1px; transform:translateX(-50%);
+  background:rgba(201,162,74,.5);
+}
 .family__divider span{
-  display:block; font-size:1.3rem;
-  padding:.4rem 0;
-  border-left:1px solid rgba(201,162,74,.5);
-  padding-left:1.2rem; padding-right:0;
-  height:100%;
-  display:flex; align-items:center;
+  position:relative; z-index:1;
+  font-size:1.3rem;
+  display:flex; align-items:center; justify-content:center;
+  background:#fff;            /* white gap so the line doesn't run through the cross */
+  padding:.6rem 0;
 }
 .family__of,.family__by{
   font-family:var(--display);
@@ -399,9 +405,10 @@ img{display:block;max-width:100%;height:auto}
 @media (max-width:640px){
   .family__two{ grid-template-columns:1fr; gap:0; }
   .family__divider{ padding:1.6rem 0; }
+  .family__divider::before{ display:none; }   /* no vertical line when stacked */
   .family__divider span{
-    border-left:none; border-top:1px solid rgba(201,162,74,.5);
-    width:60px; padding:1rem 0 0; height:auto;
+    border-top:1px solid rgba(201,162,74,.5);
+    width:60px; padding:1rem 0 0; background:transparent;
   }
 }
 
