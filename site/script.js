@@ -117,3 +117,40 @@ var WEDDING = new Date('2027-01-04T11:00:00+05:30');
 
   items.forEach(function (el) { io.observe(el); });
 })();
+
+/* ---------- Background music toggle ---------- */
+(function () {
+  var audio = document.getElementById('bgMusic');
+  var btn = document.getElementById('musicBtn');
+  if (!audio || !btn) return;
+
+  function setPlaying(on) {
+    btn.classList.toggle('is-playing', on);
+    btn.setAttribute('aria-label', on ? 'Pause music' : 'Play music');
+    btn.title = on ? 'Pause music' : 'Play music';
+  }
+
+  btn.addEventListener('click', function () {
+    if (audio.paused) {
+      audio.play().then(function () { setPlaying(true); }).catch(function () {});
+    } else {
+      audio.pause();
+      setPlaying(false);
+    }
+  });
+
+  // Try to start softly on the guest's first interaction (browsers block autoplay).
+  var started = false;
+  function startOnce(e) {
+    if (started) return;
+    started = true;
+    document.removeEventListener('pointerdown', startOnce);
+    // If the first tap was the button itself, let its own handler decide.
+    if (e && btn.contains(e.target)) return;
+    audio.play().then(function () { setPlaying(true); }).catch(function () {});
+  }
+  document.addEventListener('pointerdown', startOnce);
+
+  audio.addEventListener('pause', function () { setPlaying(false); });
+  audio.addEventListener('play', function () { setPlaying(true); });
+})();

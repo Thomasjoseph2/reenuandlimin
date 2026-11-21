@@ -47,12 +47,13 @@ img{display:block;max-width:100%;height:auto}
 .verse__rule span{
   display:inline-block;
   font-size:1.5rem;
+  line-height:1;
   position:relative;
 }
 .verse__rule span::before,
 .verse__rule span::after{
   content:"";
-  position:absolute; top:50%;
+  position:absolute; top:45%;
   width:60px;height:1px;
   background:linear-gradient(90deg,transparent,var(--gold));
 }
@@ -577,4 +578,49 @@ img{display:block;max-width:100%;height:auto}
   .story__card{ max-width:340px; margin:0 auto; }
   .count__box{ min-width:70px; padding:1rem .6rem; }
   .count__num{ font-size:2rem; }
+}
+
+/* ---------- Contact / queries ---------- */
+.contact{ padding:4rem 1.5rem; text-align:center; background:#fbf7ee; }
+.contact .verse__rule{ margin-bottom:1.2rem; }
+.contact__sub{ color:#6b6150; font-style:italic; margin:0 auto 2rem; max-width:34ch; }
+.contact__list{
+  display:flex; flex-wrap:wrap; gap:1rem;
+  justify-content:center; max-width:640px; margin:0 auto;
+}
+.contact__card{
+  display:flex; flex-direction:column; align-items:center; gap:.35rem;
+  min-width:220px; padding:1.3rem 1.6rem;
+  border:1px solid rgba(201,162,74,.4); border-radius:14px;
+  background:#fff;
+}
+.contact__name{
+  font-family:var(--display); font-size:1.15rem; color:var(--emerald);
+}
+.contact__role{
+  font-family:var(--display); letter-spacing:.18em; text-transform:uppercase;
+  font-size:.66rem; color:var(--gold);
+}
+.contact__tel{
+  display:inline-flex; align-items:center; gap:.4rem;
+  margin-top:.3rem; padding:.5em 1.2em;
+  background:var(--emerald); color:var(--gold-light);
+  text-decoration:none; border-radius:999px;
+  font-size:.95rem; letter-spacing:.03em;
+}
+
+/* ---------- Music toggle button ---------- */
+.music-btn{
+  position:fixed; right:16px; bottom:16px; z-index:50;
+  width:52px; height:52px; border-radius:50%;
+  border:none; cursor:pointer;
+  background:var(--emerald); color:var(--gold-light);
+  font-size:1.4rem; line-height:1;
+  box-shadow:0 6px 18px rgba(0,0,0,.25);
+  display:flex; align-items:center; justify-content:center;
+}
+.music-btn.is-playing{ animation:musicPulse 1.6s ease-in-out infinite; }
+@keyframes musicPulse{
+  0%,100%{ box-shadow:0 6px 18px rgba(0,0,0,.25); }
+  50%{ box-shadow:0 6px 26px rgba(201,162,74,.6); }
 }
