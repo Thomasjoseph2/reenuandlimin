@@ -45,20 +45,20 @@ img{display:block;max-width:100%;height:auto}
 }
 .verse__rule{ text-align:center; color:var(--gold); margin-bottom:1rem; }
 .verse__rule span{
-  display:inline-block;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:1rem;
   font-size:1.5rem;
   line-height:1;
-  position:relative;
 }
 .verse__rule span::before,
 .verse__rule span::after{
   content:"";
-  position:absolute; top:45%;
   width:60px;height:1px;
   background:linear-gradient(90deg,transparent,var(--gold));
 }
-.verse__rule span::before{ right:135%; transform:scaleX(-1); }
-.verse__rule span::after{ left:135%; }
+.verse__rule span::before{ transform:scaleX(-1); }
 
 .btn{
   display:inline-block;
