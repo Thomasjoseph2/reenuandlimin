@@ -152,6 +152,14 @@ img{display:block;max-width:100%;height:auto}
   font-size:.85rem;
   color:var(--gold-light);
 }
+.hero__date-cal{
+  display:block;
+  margin:.4rem auto .1rem;
+  line-height:0;
+}
+.hero__date-cal svg{
+  filter:drop-shadow(0 4px 10px rgba(0,0,0,.35));
+}
 .hero__date-main{
   font-size:1.5rem;
   letter-spacing:.12em;
